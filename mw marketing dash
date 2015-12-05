@@ -1,0 +1,204 @@
+startDate = calc(curDate(), "-P24M S1D")
+endDate = curDate()
+test = ""
+i = 24
+//array to store dates index by integers
+outPut = new Integer[Integer]
+dateCount = new Date[Integer]
+//array to store links
+linkArray = new String[Integer]
+linkArray[0] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149142"
+linkArray[1] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149143"
+linkArray[2] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149144"
+linkArray[3] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149145"
+linkArray[4] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149146"
+linkArray[5] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149147"
+linkArray[6] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149148"
+linkArray[7] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149149"
+linkArray[8] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149150"
+linkArray[9] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149151"
+linkArray[10] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149152"
+linkArray[11] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149153"
+
+//manually add these outside of a loop, indexed between 0 and 11
+dash.out = ""
+
+while(startDate<endDate){
+ nextDate = calc(startDate, "P1M")
+ adm.addSearch("adHis", "adDate", ">=", startDate)
+ adm.addSearch("adHis", "adDate", "<", nextDate)
+ outPut[i] = adm.count
+ dateCount[i] = startDate
+ startDate = nextDate
+ //store the start date in the date array, indexed at i
+ i--
+ adm.clearSearchAndSort()
+}
+
+dash.out+=``<table class = "table table-bordered table-condensed">
+        <thead>
+         <tr class = "warning"><th></th>``
+for(j = 11; j>= 0; j--){
+ dash.out += '<th colspan = "2">'+dateCount[j].format("MMM")+'</th>'
+}
+dash.out += '<th>Total</th>'
+dash.out += ``
+         </tr>
+        </thead>
+        <tbody>
+         <tr">
+          <th style = "font-size: medium" class = "success">Admits</th>
+ ``
+//loop through the date array here. Call .format("M") on each date
+
+for(j=23;j>=12;j--){
+
+ dash.out+='<td style = "font-size: medium; text-align: center;" class = "active">'+outPut[j]+'</td>'
+ dash.out+='<td style = "font-size: medium; text-align: center;"><strong><a href = "'+linkArray[j-12]+'">'+outPut[j-12]+'</strong></td>'
+
+}
+adm.addSearch("adHis", "adDate", ">=", calc(curDate(), "-P11M S1D"))
+dash.out += '<td style = "font-size: medium; text-align: center;">'+adm.count+'</td>' 
+adm.clearSearchAndSort()
+
+dash.out += ``</tr><tr><th style = "font-size: medium" class = "danger">Discharges</th>``
+
+//discharge logic
+
+startDate = calc(curDate(), "-P24M S1D")
+endDate = curDate()
+i = 24
+outPut = new Integer[Integer]
+dateCount = new Date[Integer]
+//array to store links
+linkArray = new String[Integer]
+linkArray[0] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149154"
+linkArray[1] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149155"
+linkArray[2] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149156"
+linkArray[3] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149157"
+linkArray[4] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149158"
+linkArray[5] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149159"
+linkArray[6] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149160"
+linkArray[7] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149161"
+linkArray[8] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149162"
+linkArray[9] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149163"
+linkArray[10] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149164"
+linkArray[11] = "https://discoveryhq.bluestep.net/shared/relate/listmodule.jsp?_event=view&_id=530009_U132483__149165"
+
+while(startDate<endDate){
+ nextDate = calc(startDate, "P1M")
+ adm.addSearch("adHis", "dDate", ">=", startDate)
+ adm.addSearch("adHis", "dDate", "<", nextDate)
+ outPut[i] = adm.count
+ dateCount[i] = startDate
+ startDate = nextDate
+ i--
+ adm.clearSearchAndSort()
+}
+
+
+for(j=23;j>=12;j--){
+
+ dash.out+='<td style = "font-size: medium; text-align: center;" class = "active">'+outPut[j]+'</td>'
+ dash.out+='<td style = "font-size: medium; text-align: center;"><strong><a href = "'+linkArray[j-12]+'">'+outPut[j-12]+'</strong></td>'
+
+}
+adm.addSearch("adHis", "dDate", ">=", calc(curDate(), "-P11M S1D"))
+dash.out += '<td style = "font-size: medium; text-align: center;">'+adm.count+'</td>'
+adm.clearSearchAndSort()
+//end discharge logic
+
+dash.out+='</tr></tbody></table>'
+
+
+//boys total
+students.addSearch("info", "gender", "=", "Male")
+dash.totBoys = students.count
+students.clearSearchAndSort()
+
+//rc boys
+students.addSearch("info", "gender", "=", "Male")
+students.addSearch("int", "mwStu", "!=", true)
+dash.admBoysRC= students.count
+students.clearSearchAndSort()
+
+//mw boys
+students.addSearch("info", "gender", "=", "Male")
+students.addSearch("int", "mwStu", "=", true)
+dash.admBoysMW= students.count
+students.clearSearchAndSort()
+
+//girls total
+students.addSearch("info", "gender", "=", "Female")
+dash.totGirls = students.count
+students.clearSearchAndSort()
+
+//rc girls
+students.addSearch("info", "gender", "=", "Female")
+students.addSearch("int", "mwStu", "!=", true)
+dash.admGirlsRC= students.count
+students.clearSearchAndSort()
+
+//mw girls
+students.addSearch("info", "gender", "=", "Female")
+students.addSearch("int", "mwStu", "=", true)
+dash.admGirlsMW= students.count
+students.clearSearchAndSort()
+
+//mw total
+students.addSearch("int", "mwStu", "=", true)
+dash.admMW = students.count
+students.clearSearchAndSort()
+
+//rc total
+students.addSearch("int", "mwStu", "!=", true)
+dash.admRC = students.count
+students.clearSearchAndSort()
+
+//total students
+dash.admTot = students.count
+
+
+//planned admits RC
+inqs.addSearch("adHis", "adDate", "=", null)
+inqs.addSearch("inq", "planAdmit", ">", curDate())
+inqs.addSearch("inq", "dead", "!=", true)
+inqs.addSearch("int", "mwStu", "!=", true)
+dash.pAdmRC = inqs.count
+inqs.clearSearchAndSort()
+
+//planned admits MW
+inqs.addSearch("adHis", "adDate", "=", null)
+inqs.addSearch("inq", "planAdmit", ">", curDate())
+inqs.addSearch("inq", "dead", "!=", true)
+inqs.addSearch("int", "mwStu", "=", true)
+dash.pAdmMW = inqs.count
+inqs.clearSearchAndSort()
+
+//planned admits total
+inqs.addSearch("adHis", "adDate", "=", null)
+inqs.addSearch("inq", "planAdmit", ">", curDate())
+inqs.addSearch("inq", "dead", "!=", true)
+dash.admTot= inqs.count
+inqs.clearSearchAndSort()
+
+//planned Discharges RC
+students.addSearch("dis", "date", ">", curDate())
+students.addSearch("dis", "date", "<=", calc(curDate(), "P3M"))
+students.addSearch("int", "mwStu", "!=", true)
+dash.pDisRC = students.count
+students.clearSearchAndSort()
+
+//planned Discharges MW
+students.addSearch("dis", "date", ">", curDate())
+students.addSearch("dis", "date", "<=", calc(curDate(), "P3M"))
+students.addSearch("int", "mwStu", "=", true)
+dash.pDisMW = students.count
+students.clearSearchAndSort()
+
+
+//planned Discharges tot
+students.addSearch("dis", "date", ">", curDate())
+students.addSearch("dis", "date", "<=", calc(curDate(), "P3M"))
+dash.pDisTot = students.count
+students.clearSearchAndSort()

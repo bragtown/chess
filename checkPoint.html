@@ -1,0 +1,52 @@
+
+
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<h1>Checkpoint</h1>
+	<div class = "row">
+		<div class = "well col-md-3">Recently I have done a major overhaul for this game, fixing and organizing code. Here you will find the major components with their descriptions. In doing this I tried to seperate js files by their main function.</div>
+
+		<div class = "well col-md-3">
+					chessMain.js<br>
+					This contains variables relevant to the game management, like whose turn it is, board history, most recently selected square, etc. I have all the variables I can think of here, but I need to contain them  into a single object, so that I can save that object into an object history for when I implement a back button, and the ability to go back to any point in the game.		
+		</div>
+
+		<div class = "well col-md-3">
+			ChessPiece.js<br>This is the constructor for the chess piece object. It is turning out to be kind of redundant since the rewrite, but I'm keeping it around in case it becomes useful. It may need to be removed. It constructs pieces with a name, color, id, and html code.
+		</div>
+		</div>
+		<div class = "row">	
+		<div class = "well col-md-3">
+			chessSquare.js<br>This is where you find all the info about the board, where the pieces are, if the square is highlighted, marked for en pessent, etc. It has functions that can be called to unhighlight its respective square, occupy it, and even copy itself. This is especially useful for looking into check
+		</div>
+
+		<div class = "well col-md-3">
+			clicksquare.js<br>Here we handle what happens when a square is clicked on. There are 3 basic things that can happen when we click on a game square.
+			<ul>
+				<li>1. highlights potential moves for the respective piece if it is that pieces turn</li>
+				<li>2. if the square is highlighted, it moves the most recently selected piece</li>
+				<li>3. if no square is highlighted and it either an empty space or an opponents piece, nothing at all</li>
+			</ul>
+		</div>
+
+		<div class = "well col-md-3">
+			makeBoard.js<br>All this file does is intantiate my chess pieces, pushes them to an array, and assigns each piece a code depending on its name.
+		</div>
+		</div>
+		<div class = "row">
+		<div class = "well col-md-3">
+			drawboard.js<br>This file draws the board and gets everything going, calling functions that make chess squares and pieces and then updating the html.
+		</div>
+		<div class = "well col-md-3">
+			updateboard.js<br>One of the biggest problems I faced early on was having all kinds of functions able to update html on the board. Now, when moves are made only code found here is allowed to update the html. The exceptions are the highlight function in the chesssquare class and the drawboard function that instantiates the initial html. I would like to have code in here that handles going back in the game, setting timers and ending the game.
+		</div>
+
+		</div>
+			check.js<br>Here we find all the code that looks into the king being checked. What is missing is the logic that needs to for the king being in checkmate. For this I will have to look through all of my pieces if I am in checkmate. Right now I only have code to look through opponents code to see if the turn starts with me in check.
+		</div>
+
+	</div>
+</body>

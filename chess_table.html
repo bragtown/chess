@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css">
+		<script src = "login.js"></script>
+		<script src = "chessMain.js"></script>
+		<script src = "ChessPiece.js"></script>
+		<script src = "clickSquare.js"></script>
+		<script src = "makeBoard.js"></script>
+		<script src = "drawBoard.js"></script>
+		<script src = "updateBoard.js"></script>
+		<script src = "ChessSquare.js"></script>
+		<script src = "check.js"></script>
+		<script src = "getPiece.js"></script>
+	</head>
+	<body onload = "drawboard()">
+		<div class = "left" id = "myBoard"></div>
+		<div class = "left" id = "gameStats">
+			<div id = "userInfo"></div>
+			<button id = "logout">Logout</button>
+			<button class = "inheritFont" onclick = "reset()">Reset</button>
+			<select id = "timeSelect" onchange = "preMadeTime()" class = "inheritFont">
+				<option value = "1">Lightning</option>
+				<option value = "3">Speed</option>
+				<option value = "10">Casual</option>
+				<option value = "20">Long Haul</option>
+			</select>
+			<input class = "inheritFont" type = "number" onchange = "updateTime()" value = "5" id = "timeInput">
+			<table class = "inheritFont">
+				<thead>
+					<tr>
+						<th>Turn</th>
+						<th>White Moves</th>
+						<th>Black Moves</th>
+					</tr>
+				</thead>
+				<tbody id = "gameHistory">
+				</tbody>
+			</table>
+
+		</div>
+		<div id = "debug">Debug: </div>
+		<hr>
+		<!-- test -->
+	</body>
+</html>

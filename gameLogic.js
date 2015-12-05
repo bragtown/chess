@@ -1,0 +1,22 @@
+
+turnCount = 0.0;
+boardHistory = [];
+curBoard = [];
+nextBoard = [];
+board; 
+height = 8;
+width = 8;
+selectedSquare = 0;
+turn = true;
+justSelected = 0;
+prohibited = [];
+enPessants = [];
+turnNo = 0;
+blackChecked = false;
+whiteChecked = false;
+duplicatePieces = [];
+chessPieces = [];
+makesCheckSquares = [];
+whiteKingLoc = 13;
+blackKingLoc = 83;
+kingLoc = 0;

@@ -1,0 +1,145 @@
+<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css">
+		<script src = "login.js"></script>
+	</head>
+	<body>
+		<h1>
+			Chess
+		</h1>
+		<div id = "loginStatus">Log In Failed</div>
+		<div class = "login">
+			<input id = "username" type = "text" placeholder = "username">
+			<input id = "password" type = "password" placeholder = "password">
+			<input id = "submit" type="submit" value="Submit">
+		</div>
+		<img src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQJ8ckAliXIyFaMQ856agQMQPqQX2Uz_pYXaB_RJJafZF3n0hF_">
+		<p>This is the simple game of chess and offers the ability for two players to jump right on in and play the game. If you are looking to learn the rules of chess, click <a href = "https://en.wikipedia.org/wiki/Rules_of_chess">here</a></p>
+		<a target = "_blank" href = "../Chess Game/chess_table.html">Play the game!</a>
+		<h2>
+			Preliminary Software Design
+		</h2>
+		<h3>Chess Squares</h3>
+		<table>
+			<tbody>
+				<tr>
+					<td>Height</td>
+					<td>Integer</td>
+				</tr>
+				<tr>
+					<td>Width</td>
+					<td>Int</td>
+				</tr>
+				<tr>
+					<td>Color</td>
+					<td>String // white or black</td>
+				</tr>
+				<tr>
+					<td>highlighted</td>
+					<td>bool</td>
+				</tr>
+				<tr>
+					<td>highlight</td>
+					<td>Function that highlights the border of the square</td>
+				</tr>
+				<tr>
+					<td>Unhighlight</td>
+					<td>Function that unhighlights the border of the square</td>
+				</tr>
+
+				<tr>
+					<td>Occupied</td>
+					<td>Bool</td>
+				</tr>
+				<tr>
+					<td>OccuppiedBy</td>
+					<td>String</td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>Chess Pieces</h3>
+		<table>
+			<tbody>
+				<tr>
+					<td>Piece Name</td>
+					<td>String</td>
+				</tr>
+				<tr>
+					<td>color</td>
+					<td>string</td>
+				</tr>
+				<tr>
+					<td>html code</td>
+					<td>string</td>
+				</tr>
+				<tr>
+					<td>Location</td>
+					<td>object containing the current height and width</td>
+				</tr>
+				<tr>
+					<td>Change Location function</td>
+					<td>changes the location</td>
+				</tr>
+				<tr>
+					<td>get piece move function</td>
+					<td>returns an array of possible locations the piece can move</td>
+				</tr>
+				<tr>
+					<td>selected</td>
+					<td>bool</td>
+				</tr>
+				<tr>
+					<td>select function</td>
+					<td>finds possible moves change html to show possible moves</td>
+				</tr>
+				<tr>
+					<td>Possible moves</td>
+					<td>array containing possible move locations</td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>
+			Chess Board
+		</h3>
+		<table>
+			<tbody>
+				<tr>
+					<td>Pieces</td>
+					<td>Array of piece objects?</td>
+				</tr>
+				<tr>
+					<td>Lost Pieces</td>
+					<td>String Array</td>
+				</tr>
+				<tr>
+					<td>Squares</td>
+					<td>Array of Square objects</td>
+				</tr>
+				<tr>
+					<td>Height</td>
+					<td>8</td>
+				</tr>
+				<tr>
+					<td>Width</td>
+					<td>8</td>
+				</tr>
+				<tr>
+					<td>draw table function</td>
+					<td>loop through height and width, create square objects and add in the html</td>
+				</tr>
+				<tr>
+					<td>turn</td>
+					<td>boolean</td>
+				</tr>
+				<tr>
+					<td>Move History</td>
+					<td>array of move strings</td>
+				</tr>
+				<tr>
+					<td>Remove piece function</td>
+					<td>this deletes each piece</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

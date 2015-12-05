@@ -1,0 +1,46 @@
+.white{
+	background-color: white;
+}
+.black{
+	background-color: grey;
+}
+#loginStatus{
+	color:red;
+	display: none;
+}
+.whiteTurn{
+	color:white;
+	transition: color 1s;
+}
+.blackTurn{
+	color:black;
+	transition: color 1s;
+}
+.square{
+	width: 4em;
+	height: 4em;
+	font-size: 1.5em;
+	text-align: center;
+}
+span.piece{
+	cursor: pointer;
+	font-size: 3em;   
+}
+body{
+	background-color: lightblue;
+}
+.highlighted{
+	background-color: rgba(246, 230, 8, .5);
+	cursor: pointer;
+
+}
+.left{
+	float:left;
+}
+#gameStats{
+	margin-left: 2em;
+	font-size: 1.5em;
+}
+.inheritFont{
+	font-size: inherit;
+}

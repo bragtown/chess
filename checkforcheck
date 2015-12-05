@@ -1,0 +1,36 @@
+testMove = function(oldLoc, newLoc){
+
+	curPiece = chessPieces[chessSquares[oldLoc].occupiedId]
+	oldSquare = chessSquares[oldLoc]
+
+
+	locRemovePiece(squareID){
+		piece = chessPieces[chessSquares[squareID].occupiedId];
+		loc = piece.location;
+		piece.location == false;
+		return loc;
+	}
+
+	//unoccupy oldLoc
+	var curPieceLocation = locRemovePiece(oldLoc)
+	var oldSquareOccupied = oldSquare.occupied;
+	var oldSquareOccupiedBy = oldSquare.occupiedBy;
+	var oldOccupiedColor = oldSquare.occupiedColor;
+	oldSquare.occupied = false;
+	oldSquare.occupiedBy = "";
+	oldSquare.occupiedColor = "";
+
+	//occupy new location
+	  //remove piece in current location
+	var newlocPieceLocation = locRemovePiece(newLoc)
+	var bEnPess = ""
+	var bEnPessLoc = false;
+	var bEnPessOccupied = "";
+	var bEnPessOccupiedBy = "";
+
+	if(document.getElementById(newLoc).classList.contains("bEnPess")){
+		//unoccupy 
+
+		bEnPess = "bEnPess";
+	}
+}

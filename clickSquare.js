@@ -217,7 +217,7 @@ findMoves = function(squareID){
 	        forward = checkSquare(i, forward)
         }
 
-        //bottom left diagonal
+        //bottom right diagonal
         forward = true;
         for(var i = squareID-11; i > 9 && i%10 >= 0 && i%10 <= 7; i-=11){
 	        forward = checkSquare(i, forward)
@@ -225,13 +225,12 @@ findMoves = function(squareID){
 
         forward = true;
         for(var i = squareID+9; i < 90 && i%10 >= 0 && i%10 <= 7; i+=9){
-        	console.log("in diagonal")
 	        forward = checkSquare(i, forward)
 
         }
-
+        //bottom left
         forward = true;
-        for(var i = this.squareID-9; i > 9 && i%10 >= 0 && i%10 <= 7; i-=9){
+        for(var i = squareID-9; i > 9 && i%10 >= 0 && i%10 <= 7; i-=9){
 	        forward = checkSquare(i, forward)
         }
     }

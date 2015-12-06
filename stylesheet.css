@@ -12,6 +12,9 @@
 	color:white;
 	transition: color 1s;
 }
+#debug{
+	display: block;
+}
 .blackTurn{
 	color:black;
 	transition: color 1s;

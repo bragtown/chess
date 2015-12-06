@@ -22,4 +22,4 @@
     var blackKingLoc = 83;
     var kingLoc = 0;
 
-
+    var gameHistory = [];

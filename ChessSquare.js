@@ -39,6 +39,14 @@ function ChessSquare(height, width, color){
   	copyObj.occupiedColor = this.occupiedColor;
   	return copyObj;
   }
+  this.absorb = function(copyObj){
+    this.makesCheck = copyObj.makesCheck;
+    this.highlighted = copyObj.highlighted
+    this.occupied = copyObj.occupied;
+    this.occupiedBy = copyObj.occupiedBy;
+    this.occupiedId = copyObj.occupiedId
+    this.occupiedColor = copyObj.occupiedColor
+  }
   this.highlight = function(){
     myClass = document.getElementById(this.id);
     myClass.className += " highlighted";

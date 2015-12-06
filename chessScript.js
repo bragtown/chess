@@ -296,6 +296,7 @@
                     }
                     else if(forward && chessSquares[i].occupied == true && chessSquares[i] && chessSquares[i].occupiedColor != this.color){
                         forward = false;
+                        console.log("in bottom left diag")
                         chessSquares[i].highlight();                            
                     }
                     else{

@@ -39,17 +39,49 @@ reset = function(){
 update = function(){
 	turnCount+= .5
 	var hist = boardHistory[turnCount] = [];
+	console.log(curBoard)
 	for(s in curBoard){
-		v = curBoard[s];
+		var v = curBoard[s];
 		//stores board for use later
 		hist[s] = v.copy()
 		//updates the location on the board
-		v.updateLoc();		
+		v.updateLoc()	
+
 		//update my nextBoard
 		nextBoard[s] = v.copy()
-
 	}
+	//copyGameInfo();
+	//console.log(JSON.stringify(gameHistory))
 }
+
+// copyGameInfo = function(){
+// 	gameHistory.push({
+
+//     sinputTime: inputTime,
+//     sturnCount: turnCount,
+//     sboardHistory: boardHistory,
+//     scurBoard: curBoard,
+//     nextBoard: nextBoard,
+//     sboard: board,
+//     sheight: height,
+//     swidth: width,
+//     sselectedSquare: selectedSquare,
+//     sturn: turn,
+//     sjustSelected: justSelected,
+//     sprohibited: prohibited,
+//     senPessants: enPessants,
+//     sturnNo: turnNo,
+//     sblackChecked: blackChecked,
+//     swhiteChecked: whiteChecked,
+//     sduplicatedPieces: duplicatePieces,
+//     schessPieces: chessPieces,
+//     smakesCheckSquares: makesCheckSquares,
+//     swhiteKingLoc: whiteKingLoc,
+//     sblackKingLoc: blackKingLoc,
+//     skingLoc: kingLoc
+// 	})
+// }
+
 adHistory = function(move){
 	var letter = ""
 	var number = 0
@@ -89,4 +121,52 @@ adHistory = function(move){
 		console.log(move.occupiedId, letter, number)
 		document.getElementById(prevTurnString).innerHTML = ''+move.occupiedId+''+letter+''+number+''
 	}
+}
+
+function setBoard () {
+	argsArray = getSampleBoard()
+	args = argsArray.pop()
+	//set the game info
+	inputTime=args.sinputTime;
+ 	turnCount=args.sturnCount
+ 	boardHistory=args.sboardHistory;
+ 	//curBoard=args.scurBoard;
+ 	nextBoard=args.nextBoard;
+ 	board=args.sboard;
+ 	height=args.sheight;
+ 	width=args.swidth;
+ 	selectedSquare=args.sselectedSquare;
+ 	turn=!args.sturn;
+ 	justSelected=args.sjustSelected;
+ 	prohibited=args.sprohibited;
+ 	enPessants=args.senPessants;
+ 	turnNo=args.sturnNo;
+ 	blackChecked=args. sblackChecked;
+ 	whiteChecked=args.swhiteChecked;
+ 	duplicatePieces=args.sduplicatedPieces;
+ 	chessPieces=args.schessPieces;
+ 	makesCheckSquares=args.smakesCheckSquares;
+ 	whiteKingLoc=args.swhiteKingLoc;
+ 	blackKingLoc=args.sblackKingLoc;
+ 	kingLoc=args.kingLoc;
+
+    console.log(turn, turnCount)
+	//change the board
+    for(s in args.nextBoard){
+
+    	var v = args.nextBoard[s]
+    	if(v != null){	
+			curBoard[s].absorb(v)
+			curBoard[s].updateLoc()
+		}	
+    }
+	document.getElementById("debug").innerHTML += JSON.stringify(args);
+}
+
+
+getSampleBoard = function(){
+    var request = new XMLHttpRequest();
+    request.open("GET", "checkInThree.json", false);
+    request.send();
+    return JSON.parse(request.responseText);
 }
